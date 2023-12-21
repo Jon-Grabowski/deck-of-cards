@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#home-header {
+
+}
+
+#current-deck {
+  margin-right: 5rem;
+}
+
+#play-area {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+
