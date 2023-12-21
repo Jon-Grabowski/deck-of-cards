@@ -5,6 +5,7 @@ import { useState } from 'react'
 function Home() {
     const [deck, setDeck] = useState({})
     const [currCard, setCurrCard] = useState({})
+    
     // const currDeckId = 'enxk4heverez' TESTING DECK ID
 
     // console.log(deck)
