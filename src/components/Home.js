@@ -13,7 +13,6 @@ function Home() {
     function updateCardsRemaining(remaining) {
         const updatedDeck = deck
         updatedDeck.remaining=remaining
-        console.log(updatedDeck)
         setDeck(updatedDeck)
     }
 
