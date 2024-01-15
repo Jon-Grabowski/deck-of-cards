@@ -2,10 +2,10 @@ import React from 'react'
 import SelectionArea from './SelectionArea'
 import { useState } from 'react'
 
-function PlayArea({deck, currCard, setCurrCard, updateCardsRemaining}) {
-    const {deck_id, remaining, shuffled, success} = deck
+function PlayArea({deck, currCard, setCurrCard, updateCardsRemaining, score, setScore}) {
+    const {deck_id, remaining} = deck
     const {code, image, suit, value, numValue} = currCard
-    const [score, setScore] = useState(0)
+    
     const [guess, setGuess] = useState('')
 
     async function drawCard(selection) {
@@ -53,7 +53,7 @@ function PlayArea({deck, currCard, setCurrCard, updateCardsRemaining}) {
                 {deck_id ?
                     <div id='current-deck'>
                         <img src='https://deckofcardsapi.com/static/img/back.png' alt='back of card'/>
-                        <p>Card Remaining: {remaining}</p>
+                        <p>Cards Remaining: {remaining}</p>
                     </div>
                     :
                     null
@@ -65,7 +65,7 @@ function PlayArea({deck, currCard, setCurrCard, updateCardsRemaining}) {
                     <div>
                         <img src={image} alt={code}/>
                         <SelectionArea drawCard={drawCard}/>
-                        <p>{guess}</p>
+                        <p>{remaining>50 ? null : guess}</p>
                     </div>
                     
                     :

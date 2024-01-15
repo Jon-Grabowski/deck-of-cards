@@ -5,6 +5,7 @@ import { useState } from 'react'
 function Home() {
     const [deck, setDeck] = useState({})
     const [currCard, setCurrCard] = useState({})
+    const [score, setScore] = useState(0)
     
     // const currDeckId = 'enxk4heverez' TESTING DECK ID
 
@@ -22,14 +23,16 @@ function Home() {
         const newDeck = await fetch ("https://deckofcardsapi.com/api/deck/enxk4heverez/shuffle/").then(r => r.json())
         setDeck(newDeck)
         setCurrCard({})
+        setScore(0)
     }
 
     async function shuffleDeck() {
         // DISABLED FETCHING NEW DECK DURING TESTING, INSTEAD IT SHUFFLES TESTING DECK.
         // const newDeck = await fetch ("https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1").then(r => r.json())
-        const shuffledDeck = await fetch ("https://deckofcardsapi.com/api/deck/enxk4heverez/shuffle/").then(r => r.json())
+        const shuffledDeck = await fetch (`https://deckofcardsapi.com/api/deck/${deck.deck_id}/shuffle/`).then(r => r.json())
         setDeck(shuffledDeck)
         setCurrCard({})
+        setScore(0)
     }
 
     return (
@@ -46,7 +49,16 @@ function Home() {
                     {deck.deck_id ? <button onClick={shuffleDeck}>Shuffle Deck</button> : <button disabled={true}>Shuffle Deck</button>}
                 </div>
                 <div>
-                    {deck.deck_id ? <PlayArea deck={deck} currCard={currCard} setCurrCard={setCurrCard} updateCardsRemaining={updateCardsRemaining}/> : null}
+                    {deck.deck_id ? 
+                        <PlayArea 
+                            deck={deck}
+                            currCard={currCard}
+                            setCurrCard={setCurrCard}
+                            updateCardsRemaining={updateCardsRemaining}
+                            score={score}
+                            setScore={setScore}
+                        /> 
+                        : null}
                 </div>
             </div>
 
