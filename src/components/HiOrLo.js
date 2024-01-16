@@ -1,6 +1,10 @@
 import React from 'react'
 import { useState, useEffect, useReducer } from 'react'
-import { act } from 'react-dom/test-utils'
+import SelectionArea from './SelectionArea'
+import { assignNumVal } from './helperFunctions'
+
+
+// import { reducer } from './helperFunctions'
 
 function reducer(state, action) {
     switch (action.type) {
@@ -15,8 +19,32 @@ function reducer(state, action) {
                 },
                 currCard: action.payload.cards[0]
             }
-            // newState.deck.remaining = action.payload.remaining
-            
+        case ('guess'):
+            const {newCardObj, guess} = action.payload
+            const newCard = newCardObj.cards[0]
+            if ((guess === "high" && newCard.numValue > state.currCard.numValue)
+                || (guess === "low" && newCard.numValue < state.currCard.numValue)){
+                console.log('correct!')
+                return {
+                    ...state,
+                    deck: {
+                        remaining: newCardObj.remaining, 
+                        deck_id: newCardObj.deck_id
+                    },
+                    currCard: newCard,
+                    score: state.score + 1
+                }
+            } else {
+                console.log('incorrect!')
+                return {
+                        ...state,
+                        deck: {
+                            remaining: newCardObj.remaining, 
+                            deck_id: newCardObj.deck_id
+                        },
+                        currCard: newCard
+                }
+            }
         default:
             return state
     }
@@ -46,26 +74,9 @@ function HiOrLo() {
         dispatch({type: 'start', payload: newCardObject})
     }
 
-    function assignNumVal(newCard) {
-        switch (newCard.value) {
-            case 'JACK':
-                return newCard['numValue'] = 11
-            case 'QUEEN':
-                return newCard['numValue'] = 12
-            case 'KING':
-                return newCard['numValue'] = 13
-            case 'ACE':
-                return newCard['numValue'] = 14
-            default:
-                return newCard['numValue'] = parseInt(newCard.value)
-        };
-    }
-
     useEffect(() => {
         getDeck()
     }, [])
-    console.log(state)
-
 
     return (
         <div id="play-area">
@@ -75,7 +86,7 @@ function HiOrLo() {
                 <p>Cards Remaining: {state.deck.remaining}</p>
             </div>
             <div>
-                {state.deck.remaining > 51 ? <button onClick={handleStart}>Start</button> : null}
+                {state.deck.remaining > 51 ? <button onClick={handleStart}>Start</button> : <SelectionArea state={state} dispatch={dispatch}/>}
             </div>
         </div>
     )
