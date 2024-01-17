@@ -1,60 +1,7 @@
 import React from 'react'
 import { useState, useEffect, useReducer } from 'react'
 import SelectionArea from './SelectionArea'
-import { assignNumVal } from './helperFunctions'
-
-
-// import { reducer } from './helperFunctions'
-
-function reducer(state, action) {
-    switch (action.type) {
-        case ('shuffle'):
-            return {deck : action.payload, currCard: {}, score: 0}
-        case ('start'):
-            return {
-                ...state, 
-                deck: {
-                    remaining: action.payload.remaining, 
-                    deck_id: action.payload.deck_id
-                },
-                currCard: action.payload.cards[0]
-            }
-        case ('guess'):
-            const {newCardObj, guess} = action.payload
-            const newCard = newCardObj.cards[0]
-            if ((guess === "high" && newCard.numValue > state.currCard.numValue)
-                || (guess === "low" && newCard.numValue < state.currCard.numValue)){
-                console.log('correct!')
-                return {
-                    ...state,
-                    deck: {
-                        remaining: newCardObj.remaining, 
-                        deck_id: newCardObj.deck_id
-                    },
-                    currCard: newCard,
-                    score: state.score + 1
-                }
-            } else {
-                console.log('incorrect!')
-                return {
-                        ...state,
-                        deck: {
-                            remaining: newCardObj.remaining, 
-                            deck_id: newCardObj.deck_id
-                        },
-                        currCard: newCard
-                }
-            }
-        default:
-            return state
-    }
-}
-
-const initialState = {
-    deck: {},
-    currCard: {},
-    score: 0
-}
+import { assignNumVal, reducer, initialState } from './helperFunctions'
 
 function HiOrLo() {
     const [state, dispatch] = useReducer(reducer, initialState)
@@ -79,11 +26,12 @@ function HiOrLo() {
     }, [])
 
     return (
-        <div id="play-area">
+        <div >
             <button onClick={getDeck}>Shuffle Deck</button>
             <div>
                 <img src='https://deckofcardsapi.com/static/img/back.png' alt='back of card'/>
                 <p>Cards Remaining: {state.deck.remaining}</p>
+                <p>Score: {state.score}</p>
             </div>
             <div>
                 {state.deck.remaining > 51 ? <button onClick={handleStart}>Start</button> : <SelectionArea state={state} dispatch={dispatch}/>}

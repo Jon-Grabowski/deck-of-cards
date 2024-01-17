@@ -12,12 +12,19 @@ code {
     monospace;
 }
 
-#home-header {
-
+.selection-area {
+  display: flex;
+  border-style: solid;
+  margin-left: 2rem;
+  min-width: 15rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-#current-deck {
-  margin-right: 5rem;
+#currCard {
+  margin-right: 2rem;
+  
 }
 
 #play-area {

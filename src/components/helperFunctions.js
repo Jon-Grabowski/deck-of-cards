@@ -1,7 +1,7 @@
 function reducer(state, action) {
     switch (action.type) {
         case ('shuffle'):
-            return {deck : action.payload, currCard: {}, score: 0}
+            return {deck : action.payload, currCard: {}, score: 0, newCard:{}}
         case ('start'):
             return {
                 ...state, 
@@ -11,11 +11,50 @@ function reducer(state, action) {
                 },
                 currCard: action.payload.cards[0]
             }
-            // newState.deck.remaining = action.payload.remaining
-            
+        case ('guess'):
+            const {newCardObj, guess} = action.payload
+            const newCard = newCardObj.cards[0]
+            if ((guess === "high" && newCard.numValue > state.currCard.numValue)
+                || (guess === "low" && newCard.numValue < state.currCard.numValue)){
+                console.log('correct!')
+                return {
+                    ...state,
+                    deck: {
+                        remaining: newCardObj.remaining, 
+                        deck_id: newCardObj.deck_id
+                    },
+                    newCard: newCard,
+                    score: state.score + 1
+                }
+            } else {
+                console.log('incorrect!')
+                return {
+                    ...state,
+                    deck: {
+                        remaining: newCardObj.remaining, 
+                        deck_id: newCardObj.deck_id
+                    },
+                    newCard: newCard
+                }
+            }
+        case ('reset'):
+            console.log("RESET")
+            const newCurrCard = action.payload.newCardObj.cards[0]
+            return {
+                ...state,
+                currCard: newCurrCard,
+                newCard: {}
+            }
         default:
             return state
     }
+}
+
+const initialState = {
+    deck: {},
+    currCard: {},
+    score: 0,
+    newCard: {}
 }
 
 function assignNumVal(newCard) {
@@ -33,4 +72,4 @@ function assignNumVal(newCard) {
     };
 }
 
-export { reducer, assignNumVal }
+export { reducer, assignNumVal, initialState }
