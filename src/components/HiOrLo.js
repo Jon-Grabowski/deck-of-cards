@@ -26,12 +26,16 @@ function HiOrLo() {
     }, [])
 
     return (
-        <div >
+        <div id='hilo-container'>
             <button onClick={getDeck}>Shuffle Deck</button>
-            <div>
-                <img src='https://deckofcardsapi.com/static/img/back.png' alt='back of card'/>
-                <p>Cards Remaining: {state.deck.remaining}</p>
-                <p>Score: {state.score}</p>
+            <div id='deck-container'>
+                <div>
+                    <p>Cards Remaining: {state.deck.remaining}</p>
+                    <p>Score: {state.score}</p>
+                </div>
+                <div id='deck-img-container'>
+                    <img src='https://deckofcardsapi.com/static/img/back.png' className='card-image' alt='back of card'/>
+                </div>
             </div>
             <div>
                 {state.deck.remaining > 51 ? <button onClick={handleStart}>Start</button> : <SelectionArea state={state} dispatch={dispatch}/>}

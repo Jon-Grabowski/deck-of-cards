@@ -24,7 +24,8 @@ function reducer(state, action) {
                         deck_id: newCardObj.deck_id
                     },
                     newCard: newCard,
-                    score: state.score + 1
+                    score: state.score + 1,
+                    correct: true
                 }
             } else {
                 console.log('incorrect!')
@@ -34,7 +35,8 @@ function reducer(state, action) {
                         remaining: newCardObj.remaining, 
                         deck_id: newCardObj.deck_id
                     },
-                    newCard: newCard
+                    newCard: newCard,
+                    correct: false
                 }
             }
         case ('reset'):
@@ -54,7 +56,8 @@ const initialState = {
     deck: {},
     currCard: {},
     score: 0,
-    newCard: {}
+    newCard: {},
+    correct:true
 }
 
 function assignNumVal(newCard) {

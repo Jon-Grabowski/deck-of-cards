@@ -2,7 +2,7 @@ import React from 'react'
 import { assignNumVal } from './helperFunctions'
 
 function SelectionArea({state, dispatch}) {
-    const {deck, currCard, score, newCard} = state
+    const {deck, currCard, newCard, correct} = state
     
     async function makeGuess(guess) {
         const newCardObj = await fetch(`https://deckofcardsapi.com/api/deck/${deck.deck_id}/draw/?count=1`).then(r=>r.json())
@@ -19,11 +19,12 @@ function SelectionArea({state, dispatch}) {
     return (
         <div id='play-area'>
             <div id='currCard'>
-                <img src={currCard.image} alt={currCard.code}/>
+                <img src={currCard.image} alt={currCard.code} className='card-image'/>
             </div>
             {newCard.value ? 
-                <div>
-                    <img className='selection-area' src={newCard.image} alt={newCard.code}/>
+                <div id='newCard-container'>
+                    {correct? <p id='newCard-text' style={{'background-color':'green'}}>CORRECT!</p> : <p id='newCard-text' style={{'background-color': 'red'}}>WRONG</p>}
+                    <img className='card-image selection-area' src={newCard.image} alt={newCard.code} />
                 </div> 
                 : 
                 <div className='selection-area'>
