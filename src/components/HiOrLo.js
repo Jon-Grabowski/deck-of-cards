@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { useState, useEffect, useReducer } from 'react'
 import SelectionArea from './SelectionArea'
 import { assignNumVal, reducer, initialState } from './helperFunctions'
@@ -27,7 +28,9 @@ function HiOrLo() {
 
     return (
         <div id='hilo-container'>
+            <Link to='/'><button>Home</button></Link>
             <button onClick={getDeck}>Shuffle Deck</button>
+
             <div id='deck-container'>
                 <div>
                     <p>Cards Remaining: {state.deck.remaining}</p>

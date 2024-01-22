@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import PlayArea from './PlayArea'
 import { useState } from 'react'
 
@@ -37,31 +38,13 @@ function Home() {
 
     return (
         <div id='home-page'>
-            
             <div id='home-header'>
                 <h1>This is the Home Header</h1>
-                {deck.deck_id ? <p>Deck ID:{deck.deck_id}</p> : <p>No Current Deck</p>}
             </div>
-
-            <div id='card-area'>
-                <div>
-                    <button onClick={getNewDeck}>New Deck</button>
-                    {deck.deck_id ? <button onClick={shuffleDeck}>Shuffle Deck</button> : <button disabled={true}>Shuffle Deck</button>}
-                </div>
-                <div>
-                    {deck.deck_id ? 
-                        <PlayArea 
-                            deck={deck}
-                            currCard={currCard}
-                            setCurrCard={setCurrCard}
-                            updateCardsRemaining={updateCardsRemaining}
-                            score={score}
-                            setScore={setScore}
-                        /> 
-                        : null}
-                </div>
+            <div>
+                <Link to='/hilo'><button>Hi/Lo Game</button></Link>
+                
             </div>
-
         </div>
     )
 }
