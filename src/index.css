@@ -17,27 +17,33 @@ code {
 
 #deck-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   border-style: solid;
+}
+
+#score-area{
+  display: flex;
+  border: solid;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 5px;
+  margin: 5px;
+  background: rgb(234, 226, 206);
 }
 
 #deck-container img{
-  /* rotate: 90deg; */
+  transform: rotate(90deg);
   border-style: solid;
   padding: 5px;
-  
   margin: 5px;
-}
-
-#deck-img-container{
-  
 }
 
 .selection-area {
   display: flex;
   border-style: solid;
   margin-left: 2rem;
-  min-width: 15rem;
+  min-width: 12rem;
   justify-content: center;
   align-items: center;
   flex-direction: column;

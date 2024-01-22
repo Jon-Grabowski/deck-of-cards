@@ -32,7 +32,7 @@ function HiOrLo() {
             <button onClick={getDeck}>Shuffle Deck</button>
 
             <div id='deck-container'>
-                <div>
+                <div id='score-area'>
                     <p>Cards Remaining: {state.deck.remaining}</p>
                     <p>Score: {state.score}</p>
                 </div>
