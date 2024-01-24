@@ -1,8 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { useState, useEffect, useReducer } from 'react'
-import SelectionArea from './SelectionArea'
+
+import { useEffect, useReducer } from 'react'
 import { assignNumVal, reducer, initialState } from './helperFunctions'
+import SelectionArea from './SelectionArea'
+import NavBar from '../NavBar'
 
 function HiOrLo() {
     const [state, dispatch] = useReducer(reducer, initialState)
@@ -28,8 +29,8 @@ function HiOrLo() {
 
     return (
         <div id='hilo-container'>
-            <Link to='/'><button>Home</button></Link>
-            <button onClick={getDeck}>Shuffle Deck</button>
+            <NavBar getDeck={getDeck}/>
+            
 
             <div id='deck-container'>
                 <div id='score-area'>

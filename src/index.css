@@ -11,6 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.App {
+  text-align: center;
+}
+
+#nav-bar{
+height: 40px;
+color: white;
+background: black;
+display: flex;
+justify-content: space-between;
+}
+
 .card-image{
   max-width: 12rem;
 }

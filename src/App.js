@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
-import HiOrLo from './components/HiOrLo';
-import './App.css';
+import HiOrLo from './components/HiLo/HiOrLo';
+
 
 
 function App() {
