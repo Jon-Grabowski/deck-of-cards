@@ -1,0 +1,39 @@
+.selection-area {
+    display: flex;
+    border-style: solid;
+    margin-left: 2rem;
+    min-width: 12rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#currCard {
+margin-right: 2rem;
+}
+
+#currCard img {
+
+}
+
+#play-area {
+display: flex;
+justify-content: center;
+margin-top: 30px;
+}
+
+#newCard-container{
+position: relative;
+text-align: center;
+/* color: white; */
+}
+
+#newCard-text{
+position: absolute;
+top: 39%;
+left: 48%;
+background-color: green;
+color: white;
+padding: 5px;
+opacity: 90%;;
+}

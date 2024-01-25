@@ -1,0 +1,42 @@
+#hilo-container{
+    background-color: rgb(17, 137, 17);
+    min-height: 100vh;
+}
+
+#deck-container {
+    display: flex;
+    justify-content: center;
+    border-style: solid;
+}
+
+.card-image{
+    max-width: 12rem;
+}
+
+#score-area{
+    display: flex;
+    border: solid;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 5px;
+    margin: 5px;
+    background: rgb(234, 226, 206);
+}
+
+#logo-container{
+    margin-left: 5rem;
+    margin-right: 7rem;
+    border: solid;
+}
+
+#deck-img-container{
+    border: solid;
+}
+
+#deck-container img{
+    transform: rotate(90deg);
+    border-style: solid;
+    /* padding: 5px;
+    margin: 5px; */
+}

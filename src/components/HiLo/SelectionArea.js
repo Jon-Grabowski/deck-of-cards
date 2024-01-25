@@ -1,4 +1,5 @@
 import React from 'react'
+import './selection-area.css'
 import { assignNumVal } from './helperFunctions'
 
 function SelectionArea({state, dispatch}) {
@@ -21,6 +22,10 @@ function SelectionArea({state, dispatch}) {
             <div id='currCard'>
                 <img src={currCard.image} alt={currCard.code} className='card-image'/>
             </div>
+            <div>
+                    <button onClick={()=>makeGuess('high')}>High?</button>
+                    <button onClick={()=>makeGuess('low')}>Low?</button>
+            </div>
             {newCard.value ? 
                 <div id='newCard-container'>
                     {correct? <p id='newCard-text' style={{'background-color':'green'}}>CORRECT!</p> : <p id='newCard-text' style={{'background-color': 'red'}}>WRONG</p>}
@@ -28,8 +33,7 @@ function SelectionArea({state, dispatch}) {
                 </div> 
                 : 
                 <div className='selection-area'>
-                    <button onClick={()=>makeGuess('high')}>High?</button>
-                    <button onClick={()=>makeGuess('low')}>Low?</button>
+                    
                 </div>}
         </div>
     )  
