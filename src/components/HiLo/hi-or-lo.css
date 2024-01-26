@@ -1,12 +1,17 @@
 #hilo-container{
     background-color: rgb(17, 137, 17);
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #deck-container {
-    display: flex;
     justify-content: center;
     border-style: solid;
+    display: flex;
+    /* margin-left: 3rem;
+    margin-right: 3rem; */
 }
 
 .card-image{

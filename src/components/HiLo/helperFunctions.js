@@ -9,43 +9,38 @@ function reducer(state, action) {
                     remaining: action.payload.remaining, 
                     deck_id: action.payload.deck_id
                 },
-                currCard: action.payload.cards[0]
+                currCard: action.payload.cards[0],
+                newCard: action.payload.cards[1]
             }
         case ('guess'):
-            const {newCardObj, guess} = action.payload
-            const newCard = newCardObj.cards[0]
-            if ((guess === "high" && newCard.numValue > state.currCard.numValue)
-                || (guess === "low" && newCard.numValue < state.currCard.numValue)){
-                console.log('correct!')
+            const { guess} = action.payload
+            if ((guess === "high" && state.newCard.numValue > state.currCard.numValue)
+                || (guess === "low" && state.newCard.numValue < state.currCard.numValue)){
                 return {
                     ...state,
-                    deck: {
-                        remaining: newCardObj.remaining, 
-                        deck_id: newCardObj.deck_id
-                    },
-                    newCard: newCard,
                     score: state.score + 1,
-                    correct: true
+                    correct: true,
+                    guessTrigger: true
                 }
             } else {
-                console.log('incorrect!')
                 return {
                     ...state,
-                    deck: {
-                        remaining: newCardObj.remaining, 
-                        deck_id: newCardObj.deck_id
-                    },
-                    newCard: newCard,
-                    correct: false
+                    correct: false,
+                    guessTrigger: true
                 }
             }
         case ('reset'):
-            console.log("RESET")
-            const newCurrCard = action.payload.newCardObj.cards[0]
+            const newCardObj = action.payload.newCardObj
+            const newCard = newCardObj.cards[0]
             return {
                 ...state,
-                currCard: newCurrCard,
-                newCard: {}
+                deck: {
+                    remaining: newCardObj.remaining, 
+                    deck_id: newCardObj.deck_id
+                },
+                currCard: state.newCard,
+                newCard: newCard,
+                guessTrigger: false
             }
         default:
             return state
@@ -57,7 +52,8 @@ const initialState = {
     currCard: {},
     score: 0,
     newCard: {},
-    correct:true
+    correct:true,
+    guessTrigger: false
 }
 
 function assignNumVal(newCard) {

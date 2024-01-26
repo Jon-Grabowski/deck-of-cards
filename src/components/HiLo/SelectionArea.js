@@ -3,16 +3,17 @@ import './selection-area.css'
 import { assignNumVal } from './helperFunctions'
 
 function SelectionArea({state, dispatch}) {
-    const {deck, currCard, newCard, correct} = state
+    const {deck, currCard, newCard, correct, guessTrigger} = state
     
-    async function makeGuess(guess) {
-        const newCardObj = await fetch(`https://deckofcardsapi.com/api/deck/${deck.deck_id}/draw/?count=1`).then(r=>r.json())
-        assignNumVal(newCardObj.cards[0])
-        dispatch({type: 'guess', payload:{newCardObj, guess: guess}})
-        setTimeout(resetPlayArea, 1500, newCardObj)
+    function makeGuess(guess) {
+        
+        dispatch({type: 'guess', payload:{ guess: guess}})
+        setTimeout(resetPlayArea, 1500)
     }
 
-    function resetPlayArea(newCardObj){
+    async function resetPlayArea(){
+        const newCardObj = await fetch(`https://deckofcardsapi.com/api/deck/${deck.deck_id}/draw/?count=1`).then(r=>r.json())
+        assignNumVal(newCardObj.cards[0])
         dispatch({type: 'reset', payload:{newCardObj}})
     }
 
@@ -26,14 +27,14 @@ function SelectionArea({state, dispatch}) {
                     <button onClick={()=>makeGuess('high')}>High?</button>
                     <button onClick={()=>makeGuess('low')}>Low?</button>
             </div>
-            {newCard.value ? 
+            {guessTrigger ? 
                 <div id='newCard-container'>
                     {correct? <p id='newCard-text' style={{'background-color':'green'}}>CORRECT!</p> : <p id='newCard-text' style={{'background-color': 'red'}}>WRONG</p>}
                     <img className='card-image selection-area' src={newCard.image} alt={newCard.code} />
                 </div> 
                 : 
-                <div className='selection-area'>
-                    
+                <div className='newCard-container'>
+                    <img className='card-image selection-area' src='https://deckofcardsapi.com/static/img/back.png' alt='back of card' />
                 </div>}
         </div>
     )  

@@ -19,8 +19,9 @@ function HiOrLo() {
 
     async function handleStart() {
         const deckId = "enxk4heverez" //TESTING DECK ID
-        const newCardObject = await fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=1`).then(r=>r.json())
+        const newCardObject = await fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=2`).then(r=>r.json())
         assignNumVal(newCardObject.cards[0])
+        assignNumVal(newCardObject.cards[1])
         dispatch({type: 'start', payload: newCardObject})
     }
 
@@ -47,6 +48,7 @@ function HiOrLo() {
                     <button onClick={getDeck}>Shuffle Deck</button>
                 </div>
             </div>
+
             <div>
                 {state.deck.remaining > 51 ? <button onClick={handleStart}>Start</button> : <SelectionArea state={state} dispatch={dispatch}/>}
             </div>
