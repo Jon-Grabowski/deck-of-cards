@@ -6,7 +6,6 @@ function SelectionArea({state, dispatch}) {
     const {deck, currCard, newCard, correct, guessTrigger} = state
     
     function makeGuess(guess) {
-        
         dispatch({type: 'guess', payload:{ guess: guess}})
         setTimeout(resetPlayArea, 1500)
     }
@@ -23,13 +22,21 @@ function SelectionArea({state, dispatch}) {
             <div id='currCard'>
                 <img src={currCard.image} alt={currCard.code} className='card-image'/>
             </div>
-            <div>
+            <div id='guess-area'>
+                {guessTrigger ?
+                <div>
+                    <p id='newCard-text' style={correct?{'background-color':'green'}: {'background-color':'red'}}>{correct? 'CORRECT!': 'WRONG'}</p>
+                </div>
+                :
+                <div>
                     <button onClick={()=>makeGuess('high')}>High?</button>
                     <button onClick={()=>makeGuess('low')}>Low?</button>
+                </div>
+                }
             </div>
             {guessTrigger ? 
                 <div id='newCard-container'>
-                    {correct? <p id='newCard-text' style={{'background-color':'green'}}>CORRECT!</p> : <p id='newCard-text' style={{'background-color': 'red'}}>WRONG</p>}
+                    
                     <img className='card-image selection-area' src={newCard.image} alt={newCard.code} />
                 </div> 
                 : 

@@ -6,7 +6,7 @@
     justify-content: center;
 }
 
-#deck-container {
+#top-container {
     justify-content: center;
     border-style: solid;
     display: flex;
@@ -15,7 +15,7 @@
 }
 
 .card-image{
-    max-width: 12rem;
+    max-width: 11rem;
 }
 
 #score-area{
@@ -35,13 +35,25 @@
     border: solid;
 }
 
+#deck-container{
+    border: solid;
+    position: relative;
+}
+
 #deck-img-container{
     border: solid;
+    transform: rotate(90deg);
+    
 }
 
 #deck-container img{
-    transform: rotate(90deg);
     border-style: solid;
-    /* padding: 5px;
-    margin: 5px; */
+    
+}
+
+#deck-container button{
+    position: absolute;
+    bottom: 10px;
+    left: 25%;
+    border-style: solid;
 }

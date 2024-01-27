@@ -2,6 +2,7 @@ import React from 'react'
 import './hi-or-lo.css'
 
 import { useEffect, useReducer } from 'react'
+import { Link } from 'react-router-dom'
 import { assignNumVal, reducer, initialState } from './helperFunctions'
 import SelectionArea from './SelectionArea'
 import NavBar from '../NavBar'
@@ -30,27 +31,28 @@ function HiOrLo() {
     }, [])
 
     return (
-        <div id='hilo-container'>
-            <NavBar getDeck={getDeck}/>
-
-            <div id='deck-container'>
-                <div id='score-area'>
-                    <p>Cards Remaining: {state.deck.remaining}</p>
-                    <p>Score: {state.score}</p>
-                </div>
-                <div id='logo-container'>
-                    <h5>Hi or Low</h5>
-                </div>
-                <div id='deck-img-container'>
-                    <div>
-                        <img src='https://deckofcardsapi.com/static/img/back.png' className='card-image' alt='back of card'/>
+        <div>
+            <div id='hilo-container'>
+            <Link to='/'><button>Home</button></Link>
+                <div id='top-container'>
+                    <div id='score-area'>
+                        <p>Cards Remaining: {state.deck.remaining}</p>
+                        <p>Score: {state.score}</p>
                     </div>
-                    <button onClick={getDeck}>Shuffle Deck</button>
+                    <div id='logo-container'>
+                        <h5>Hi or Low</h5>
+                    </div>
+                    <div id='deck-container'>
+                        <div id='deck-img-container'>
+                            <img src='https://deckofcardsapi.com/static/img/back.png' className='card-image' alt='back of card'/>
+                        </div>
+                        <button onClick={getDeck}>Shuffle Deck</button>
+                    </div>
                 </div>
-            </div>
 
-            <div>
-                {state.deck.remaining > 51 ? <button onClick={handleStart}>Start</button> : <SelectionArea state={state} dispatch={dispatch}/>}
+                <div>
+                    {state.deck.remaining > 51 ? <button onClick={handleStart}>Start</button> : <SelectionArea state={state} dispatch={dispatch}/>}
+                </div>
             </div>
         </div>
     )
