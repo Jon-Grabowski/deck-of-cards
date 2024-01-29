@@ -19,9 +19,11 @@ function SelectionArea({state, dispatch}) {
     console.log(newCard)
     return (
         <div id='play-area'>
+            
             <div id='currCard'>
                 <img src={currCard.image} alt={currCard.code} className='card-image'/>
             </div>
+
             <div id='guess-area'>
                 {guessTrigger ?
                 <div>
@@ -34,15 +36,17 @@ function SelectionArea({state, dispatch}) {
                 </div>
                 }
             </div>
+            
             {guessTrigger ? 
                 <div id='newCard-container'>
-                    
-                    <img className='card-image selection-area' src={newCard.image} alt={newCard.code} />
+                    <img className='card-image' src={newCard.image} alt={newCard.code} />
                 </div> 
                 : 
                 <div className='newCard-container'>
-                    <img className='card-image selection-area' src='https://deckofcardsapi.com/static/img/back.png' alt='back of card' />
-                </div>}
+                    <img className='card-image' src='https://deckofcardsapi.com/static/img/back.png' alt='back of card' />
+                </div>
+            }
+
         </div>
     )  
 }

@@ -34,15 +34,18 @@ function HiOrLo() {
         <div>
             <div id='hilo-container'>
             <Link to='/'><button>Home</button></Link>
+
                 <div id='top-container'>
-                    <div id='score-area'>
+                    <div id='score-area' style={state.deck.remaining > 51 ? {'display':'none'} : {'display': 'flex'}}>
                         <p>Cards Remaining: {state.deck.remaining}</p>
                         <p>Score: {state.score}</p>
                     </div>
+
                     <div id='logo-container'>
-                        <h5>Hi or Low</h5>
+                        <img src='https://ik.imagekit.io/lindar/flicker-test/logo_hi_lo_58ad3093f7.png'/>
                     </div>
-                    <div id='deck-container'>
+
+                    <div id='deck-container' className={state.deck.remaining > 51 ? 'hidden' : ''}>
                         <div id='deck-img-container'>
                             <img src='https://deckofcardsapi.com/static/img/back.png' className='card-image' alt='back of card'/>
                         </div>

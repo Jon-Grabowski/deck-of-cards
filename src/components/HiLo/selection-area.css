@@ -9,7 +9,6 @@
 }
 
 #currCard {
-    margin-right: 2rem;
 }
 
 #currCard img {
@@ -36,4 +35,5 @@
 
 #guess-area{
     min-width: 6rem;
+    margin: 4rem;
 }
