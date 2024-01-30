@@ -42,7 +42,7 @@ margin-right: 6rem;
 }
 
 #deck-container{
-    border: solid;
+    /* border: solid; */
     position: relative;
 }
 
@@ -51,13 +51,13 @@ margin-right: 6rem;
 }
 
 #deck-img-container{
-    border: solid;
-    /* transform: rotate(90deg); */
+    /* border: solid; */
+    transform: rotate(90deg);
     
 }
 
 #deck-container img{
-    border-style: solid;
+    /* border-style: solid; */
     
 }
 

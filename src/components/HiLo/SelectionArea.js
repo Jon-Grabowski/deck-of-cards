@@ -27,7 +27,7 @@ function SelectionArea({state, dispatch}) {
             <div id='guess-area'>
                 {guessTrigger ?
                 <div>
-                    <p id='newCard-text' style={correct?{'background-color':'green'}: {'background-color':'red'}}>{correct? 'CORRECT!': 'WRONG'}</p>
+                    <p id='guess-text' style={correct?{'background-color':'green'}: {'background-color':'red'}}>{correct? 'CORRECT!': 'WRONG'}</p>
                 </div>
                 :
                 <div>
@@ -37,7 +37,7 @@ function SelectionArea({state, dispatch}) {
                 }
             </div>
             
-            {guessTrigger ? 
+            {/* {guessTrigger ? 
                 <div id='newCard-container'>
                     <img className='card-image' src={newCard.image} alt={newCard.code} />
                 </div> 
@@ -45,7 +45,15 @@ function SelectionArea({state, dispatch}) {
                 <div className='newCard-container'>
                     <img className='card-image' src='https://deckofcardsapi.com/static/img/back.png' alt='back of card' />
                 </div>
-            }
+            } */}
+
+            <div id='newCard-container'>
+                <div id='new-card' className={guessTrigger ? 'flipped': ''}>
+                    <img id='new-card-back' className='card-image' src='https://deckofcardsapi.com/static/img/back.png' alt='back of card' />
+                    <img id='new-card-front' className='card-image' src={newCard.image} alt={newCard.code} />
+                </div>
+            </div> 
+                
 
         </div>
     )  
