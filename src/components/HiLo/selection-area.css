@@ -8,11 +8,17 @@
     flex-direction: column;
 }
 
-#currCard {
+#currCard-container.unflipped {
+    animation: slideLeft;
+    animation-duration: .9s;
 }
 
 #currCard img {
     
+}
+
+@keyframes slideLeft {
+    from{transform: translateX(240%);}
 }
 
 #play-area {
@@ -40,6 +46,19 @@
     /* color: white; */
 }
 
+#new-card-outer{
+    height: 100%;
+    width: 100%;
+}
+
+#new-card-outer.flipped{
+    animation: grow-card .6s;
+}
+
+@keyframes grow-card {
+    50%{transform: scale(1.1,1.1);}
+}
+
 #new-card{
     height: 100%;
     width: 100%;
@@ -53,10 +72,21 @@
     animation-fill-mode: forwards;
     /* transform: rotateY(180deg); */
     
-}   
+}
 
 @keyframes flip-card{
     100%{transform: rotateY(180deg);}
+}
+
+#new-card.unflipped{
+    animation: slideDown .9s;
+    animation-fill-mode: forwards;
+    /* transform: rotateY(180deg); */
+    
+}  
+
+@keyframes slideDown{
+    from{transform: translatey(-100%);}
 }
 
 
