@@ -33,9 +33,9 @@ function SelectionArea({state, dispatch}) {
                 </div>
                 :
                 <div id='guess-button-container'>
-                    <button onClick={()=>makeGuess('high')}>High?</button>
-                    <p>or</p>
-                    <button onClick={()=>makeGuess('low')}>Low?</button>
+                    <button onClick={()=>makeGuess('high')}>High</button>
+                    <p>-OR-</p>
+                    <button onClick={()=>makeGuess('low')}>Low</button>
                 </div>
                 }
             </div>

@@ -8,7 +8,6 @@
 
 #top-container {
     justify-content: center;
-    border-style: solid;
     display: flex;
     /* margin-left: 3rem;
     margin-right: 3rem; */
@@ -48,16 +47,21 @@ margin-right: 6rem;
 
 .card-image{
     max-width: 11rem;
+    border-radius: 10px;
+    box-shadow: 2px 2px 3px black;
 }
 
 #deck-img-container{
-    /* border: solid; */
+    border: solid;
     transform: rotate(90deg);
-    
+    padding: 10px;
+    border: solid;
+    border-color: rgb(210, 214, 83, .75);
+    border-width: 5px;;
+    border-radius: 20px;
 }
 
 #deck-container img{
-    /* border-style: solid; */
     
 }
 
