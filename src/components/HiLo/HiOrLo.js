@@ -5,7 +5,7 @@ import { useEffect, useReducer } from 'react'
 import { Link } from 'react-router-dom'
 import { assignNumVal, reducer, initialState } from './helperFunctions'
 import SelectionArea from './SelectionArea'
-import NavBar from '../NavBar'
+
 
 function HiOrLo() {
     const [state, dispatch] = useReducer(reducer, initialState)
@@ -31,7 +31,7 @@ function HiOrLo() {
     }, [])
 
     return (
-        <div>
+        <div className='wrapper'>
             <div id='hilo-container'>
             <Link to='/'><button>Home</button></Link>
 
@@ -42,7 +42,7 @@ function HiOrLo() {
                     </div>
 
                     <div id='logo-container'>
-                        <img src='https://ik.imagekit.io/lindar/flicker-test/logo_hi_lo_58ad3093f7.png'/>
+                        <img src='https://ik.imagekit.io/lindar/flicker-test/logo_hi_lo_58ad3093f7.png' alt='game logo'/>
                     </div>
 
                     <div id='deck-container' className={state.deck.remaining > 51 ? 'hidden' : ''}>

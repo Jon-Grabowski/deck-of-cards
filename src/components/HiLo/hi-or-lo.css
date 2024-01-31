@@ -1,16 +1,23 @@
-#hilo-container{
+.wrapper{
+    /* border: solid 3px black; */
     background-color: rgb(17, 137, 17);
+}
+#hilo-container{
+    max-width: 960px;
+    margin-inline: auto;
     min-height: 100vh;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
     justify-content: center;
+    /* border: solid */
 }
 
 #top-container {
-    justify-content: center;
     display: flex;
-    /* margin-left: 3rem;
-    margin-right: 3rem; */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    /* border: solid */
 }
 
 #score-area{
@@ -19,6 +26,7 @@
     flex-direction: column;
     padding: 25px;
     background: rgb(0, 0, 0);
+    max-height: 10rem;
 }
 
 
@@ -37,7 +45,7 @@ margin-right: 6rem;
 }
 
 #logo-container img{
-    max-width: 15rem;;
+    max-width: 15rem;
 }
 
 #deck-container{

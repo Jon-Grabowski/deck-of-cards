@@ -1,0 +1,14 @@
+#answer-card{
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    padding-inline: 15px;
+    margin-inline: 10rem;
+    justify-content: center;
+    border-radius: 10px;
+    border: solid 3px white;
+}
+
+#answer-card span{
+    font-size: 50px;
+}

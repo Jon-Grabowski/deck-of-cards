@@ -1,5 +1,6 @@
 import React from 'react'
 import './selection-area.css'
+import AnswerCard from './AnswerCard'
 import { assignNumVal } from './helperFunctions'
 
 function SelectionArea({state, dispatch}) {
@@ -28,9 +29,7 @@ function SelectionArea({state, dispatch}) {
 
             <div id='guess-area'>
                 {guessTrigger ?
-                <div>
-                    <p id='guess-text' style={correct?{'background-color':'green'}: {'background-color':'red'}}>{correct? 'CORRECT!': 'WRONG'}</p>
-                </div>
+                <AnswerCard correct={correct}/>
                 :
                 <div id='guess-button-container'>
                     <button onClick={()=>makeGuess('high')}>High</button>
@@ -39,16 +38,6 @@ function SelectionArea({state, dispatch}) {
                 </div>
                 }
             </div>
-            
-            {/* {guessTrigger ? 
-                <div id='newCard-container'>
-                    <img className='card-image' src={newCard.image} alt={newCard.code} />
-                </div> 
-                : 
-                <div className='newCard-container'>
-                    <img className='card-image' src='https://deckofcardsapi.com/static/img/back.png' alt='back of card' />
-                </div>
-            } */}
 
             <div id='newCard-container'>
                 <div id='new-card-outer' className={guessTrigger ? 'flipped': ''}>
