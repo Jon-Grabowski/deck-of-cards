@@ -1,19 +1,27 @@
-.selection-area {
+#play-area {
     display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* .selection-area {
     border-style: solid;
     margin-left: 2rem;
     min-width: 12rem;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
+    
+} */
 
 #currCard-container.unflipped {
     animation: slideLeft;
     animation-duration: .9s;
 }
 
-#currCard img {
+#currCard {
+    padding: 10px;
+    border: solid;
+    border-color: rgb(210, 214, 83, .75);
+    border-width: 5px;;
+    border-radius: 20px;
     
 }
 
@@ -21,11 +29,6 @@
     from{transform: translateX(240%);}
 }
 
-#play-area {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-}
 
 #guess-text{
     color: white;
@@ -36,12 +39,34 @@
 #guess-area{
     min-width: 7rem;
     margin: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
+
+#guess-button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#guess-button-container button{
+    min-width: 70px;
+    min-height: 35px;
+}
+
 
 #newCard-container{
     text-align: center;
     position: relative;
     max-width: 11rem;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(210, 214, 83, .75);
+    border-width: 5px;;
+    border-radius: 20px;
     
     /* color: white; */
 }
@@ -62,6 +87,7 @@
 #new-card{
     height: 100%;
     width: 100%;
+    min-width: 11rem;
     /* position: absolute; */
     /* transition: all transform 3s ease; */
     transform-style: preserve-3d;

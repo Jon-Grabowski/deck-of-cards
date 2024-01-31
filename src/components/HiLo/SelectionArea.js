@@ -32,8 +32,9 @@ function SelectionArea({state, dispatch}) {
                     <p id='guess-text' style={correct?{'background-color':'green'}: {'background-color':'red'}}>{correct? 'CORRECT!': 'WRONG'}</p>
                 </div>
                 :
-                <div>
+                <div id='guess-button-container'>
                     <button onClick={()=>makeGuess('high')}>High?</button>
+                    <p>or</p>
                     <button onClick={()=>makeGuess('low')}>Low?</button>
                 </div>
                 }
