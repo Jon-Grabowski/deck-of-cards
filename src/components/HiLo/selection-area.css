@@ -69,7 +69,7 @@
 
 #guess-button-container button:hover{
     background-color: rgba(54, 128, 219);
-    box-shadow: (0,0, 2, 2);
+    box-shadow: (0, 0, 2, 2);
 }
 
 
