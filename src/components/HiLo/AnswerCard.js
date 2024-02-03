@@ -5,7 +5,7 @@ function AnswerCard({correct}) {
     return (
         <div id='answer-card' style={correct? {'background': 'darkgreen'}: {'background': 'red'}}>
             <span>{correct ? '✓':'✕'}</span>
-            <p>{correct? 'Correct!': 'Incorrect'}</p>
+            {/* <p>{correct? 'Correct!': 'Incorrect'}</p> */}
             
         </div>
     )

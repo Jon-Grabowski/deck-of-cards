@@ -49,7 +49,7 @@ function HiOrLo() {
 
                     <div id='logo-container'>
                         <img src='https://ik.imagekit.io/lindar/flicker-test/logo_hi_lo_58ad3093f7.png' alt='game logo'/>
-                        <button onClick={getDeck} className={!startTrigger ? 'hidden' : ''}>Reset Game</button>
+                        <a onClick={getDeck} className={!startTrigger ? 'hidden' : ''}>Reset Game</a>
                     </div>
 
                     <div id='deck-container' className={!startTrigger ? 'hidden' : ''}>

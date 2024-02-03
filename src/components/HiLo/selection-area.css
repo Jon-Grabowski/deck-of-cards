@@ -39,7 +39,7 @@
 #guess-area{
     color: white;
     max-width: 8rem;
-    margin: 4rem;
+    margin-inline: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
