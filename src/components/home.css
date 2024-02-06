@@ -1,0 +1,22 @@
+#home-page{
+    /* height: auto; */
+    /* min-height: 100%; */
+    /* border: solid 4px green; */
+}
+#home-body-container{
+    border: solid;
+    background-color: aliceblue;
+    height: auto;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    margin-top: 3rem;
+}
+
+#card-games-container,
+#other-games-container{
+    min-width: 10rem;
+    min-height: 10rem;
+    border: solid 2px red;
+}
